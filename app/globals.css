@@ -25,16 +25,19 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .hero-brand { container-type: inline-size; color: var(--gold); font-family: var(--serif); }
 .hero-brand h1 { font-size: clamp(32px, 15cqi, 100px); line-height: 1.02; letter-spacing: -.055em; white-space: nowrap; }
 .profession { color: var(--muted); font-family: inherit; font-size: .9em; letter-spacing: -.025em; }
-.brand-specialties { margin-top: 10px; color: var(--muted); font-family: var(--sans); font-size: clamp(10px, 3.9cqi, 22px); line-height: 1.5; white-space: nowrap; }
+.brand-specialties { margin-top: 10px; color: var(--muted); font-family: var(--sans); font-size: clamp(12px, 5.4cqi, 30px); line-height: 1.5; white-space: nowrap; }
+.brand-specialties span { opacity: .55; }
 .reflection { margin-top: 28px; color: #a9a295; font-family: var(--serif); font-size: clamp(26px, 2.5vw, 38px); line-height: 1.25; max-width: 580px; }
 .hero-image { position: relative; min-width: 0; }
 .hero-image img { object-fit: cover; object-position: center; }
 .practices { border-top: 1px solid var(--rule); }
-.practice { display: grid; grid-template-columns: 43% 1fr; gap: 6%; padding: 84px var(--gutter); border-bottom: 1px solid var(--rule); scroll-margin-top: 15px; }
-.practice h2 { color: var(--gold); font-size: clamp(48px, 5.7vw, 82px); line-height: 1.02; letter-spacing: -.04em; }
+.practice { display: grid; grid-template-columns: 43% 1fr; column-gap: 6%; row-gap: 28px; padding: 84px var(--gutter); border-bottom: 1px solid var(--rule); scroll-margin-top: 15px; }
+.practice h2 { grid-column: 1 / -1; color: var(--gold); font-size: clamp(48px, 5.7vw, 82px); line-height: 1.02; letter-spacing: -.04em; }
 .practice h3 { margin-top: 32px; font-size: clamp(27px, 3vw, 43px); line-height: 1.15; letter-spacing: -.02em; }
-.practice-content { color: var(--muted); font-size: 18px; line-height: 1.75; padding-top: 3px; }
-.practice-content p { max-width: 66ch; }
+.practice-portrait { display: block; width: min(100%, 280px); height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.practice-portrait + h3 { margin-top: 18px; }
+.practice-content { color: var(--muted); font-size: 18px; line-height: 1.75; }
+.practice-content p { max-width: 66ch; color: var(--text); }
 .practice-content ul { list-style: none; padding: 0; margin: 30px 0 0; }
 .practice-content li { position: relative; color: var(--tertiary); padding: 14px 0; border-bottom: 1px solid transparent; }
 .practice-content li:not(:last-child)::after {
@@ -49,29 +52,35 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   pointer-events: none;
 }
 .practice-content li:last-child { border-bottom: 0; padding-bottom: 0; }
-.site-footer { padding: 46px var(--gutter); text-align: center; }
-.footer-brand { display: flex; justify-content: center; align-items: baseline; gap: 18px; font-family: var(--serif); font-size: 36px; color: var(--gold); }
+.site-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 46px var(--gutter); }
+.footer-brand { display: flex; align-items: baseline; gap: .2em; font-family: var(--serif); font-size: clamp(28px, 2.5vw, 36px); color: var(--gold); white-space: nowrap; }
+.footer-brand .wordmark { font-size: inherit; }
+.footer-specialties { margin-top: 6px; font-size: clamp(10px, 1.2vw, 16px); line-height: 1.5; color: var(--muted); white-space: nowrap; }
+.footer-specialties span { opacity: .55; }
 .footer-brand > span:last-child { color: var(--muted); }
-.email-link { display: inline-block; margin-top: 12px; font-family: var(--serif); font-size: clamp(28px, 2.5vw, 36px); color: var(--muted); text-decoration: none; padding: 14px 0; }
-.email-link:hover { text-decoration: underline; color: var(--gold); }
+.footer-email { font-family: var(--serif); font-size: clamp(40px, 4.5vw, 66px); line-height: 1; color: var(--muted); white-space: nowrap; text-align: right; }
 @media (min-width: 1800px) { body { max-width: 1800px; margin-inline: auto; } }
 @media (max-width: 1000px) and (min-width: 701px) {
   .hero-content { padding-right: 24px; min-height: 620px; }
-  .practice { gap: 5%; grid-template-columns: 42% 1fr; padding-block: 65px; }
+  .practice { column-gap: 5%; grid-template-columns: 42% 1fr; padding-block: 65px; }
   .practice h2 { font-size: 5.5vw; }
   .practice-content { font-size: 16px; }
 }
 @media (max-width: 700px) {
-  .wordmark { font-size: 44px; }
+  .wordmark { font-size: clamp(24px, 6.5vw, 44px); }
+  .footer-brand { font-size: clamp(16px, 4.2vw, 28px); }
+  .footer-email { font-size: clamp(17px, 5.4vw, 38px); }
   .hero { grid-template-columns: 1fr; }
   .hero-content { min-height: 0; padding: 70px var(--gutter) 32px; gap: 0; }
-  .brand-specialties { font-size: 5cqi; }
+  .brand-specialties { font-size: 5.4cqi; }
   .reflection { font-size: 28px; max-width: 360px; }
   .hero-image { height: 410px; }
   .hero-image img { object-position: center 60%; }
   .practice { grid-template-columns: 1fr; gap: 32px; padding-block: 54px; }
   .practice h2 { font-size: clamp(43px, 11.5vw, 66px); }
   .practice h3 { font-size: 30px; margin-top: 22px; }
+  .practice-portrait { width: min(100%, 240px); }
+  .practice-portrait + h3 { margin-top: 16px; }
   .practice-content { font-size: 16px; line-height: 1.75; }
   .practice-content ul { margin-top: 22px; }
   .practice-content li { padding-block: 15px; }
