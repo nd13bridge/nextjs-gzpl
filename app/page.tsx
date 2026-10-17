@@ -10,8 +10,8 @@ export default function Home() {
         <section className="hero" aria-labelledby="main-heading">
           <div className="hero-content">
             <div className="hero-brand">
-              <h1 id="main-heading">GZPL</h1>
-              <p className="profession">Abogados</p>
+              <h1 id="main-heading">GZPL <span className="profession">Abogados</span></h1>
+              <p className="brand-specialties">Urbanismo | Inmobiliario | Fiscal</p>
               <p className="reflection">{firm.reflection}</p>
             </div>
           </div>

@@ -4,7 +4,7 @@ export const firm = {
   fullName: 'Gómez Zaragoza · Portillo Laguna',
   email: 'legal@gzpl.com', // Ejemplo; buzón no verificado.
   preview: true,
-  reflection: 'Comprender el fondo. Cuidar cada detalle.',
+  reflection: 'Territorio y patrimonio. Excelencia con nombre propio.',
 };
 
 // Los asuntos descritos son una propuesta editorial, no casos reales ni credenciales.
