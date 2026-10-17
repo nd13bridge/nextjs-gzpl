@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import architecture from '@/public/images/architecture.png';
 import lawyerPortrait from '@/public/images/lawyer-portrait-ai.png';
 import { firm, professionals } from '@/lib/content';
@@ -49,7 +50,10 @@ export default function Home() {
           <p className="footer-brand"><span className="wordmark">GZPL</span><span>Abogados</span></p>
           <p className="footer-specialties">Urbanismo <span aria-hidden="true">·</span> Inmobiliario <span aria-hidden="true">·</span> Fiscal</p>
         </div>
-        <p className="footer-email">{firm.email}</p>
+        <div className="footer-contact">
+          <p className="footer-email">{firm.email}</p>
+          <Link className="footer-legal" href="/aviso-legal">Aviso Legal</Link>
+        </div>
       </footer>
     </>
   );
