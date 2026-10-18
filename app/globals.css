@@ -32,7 +32,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   inset: 0;
   pointer-events: none;
   background: url('/images/urban-plan.svg') center center / cover no-repeat;
-  opacity: .15;
+  opacity: .14;
 }
 .hero-brand { position: relative; min-height: 100svh; container-type: inline-size; color: var(--gold); font-family: var(--serif); }
 .hero-brand .brand-lockup {
@@ -82,19 +82,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   margin: 0;
   max-width: none;
   text-align: center;
-}
-/* Attach the dark backdrops to the copy so they follow every viewport change. */
-.hero-brand .brand-lockup,
-.hero-brand .reflection { isolation: isolate; }
-.hero-brand .brand-lockup::before,
-.hero-brand .reflection::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: -80px -60px;
-  background: radial-gradient(ellipse, rgb(0 0 0 / 65%) 0%, rgb(0 0 0 / 40%) 35%, rgb(0 0 0 / 15%) 65%, transparent 100%);
-  filter: blur(24px);
-  pointer-events: none;
 }
 .hero-image { position: relative; min-width: 0; }
 .hero-image img { object-fit: cover; object-position: center; }
@@ -211,7 +198,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   }
   .hero-content::before {
     background-position: 57% center;
-    opacity: .16;
+    opacity: .15;
   }
   .hero-brand .brand-lockup { right: max(24px, env(safe-area-inset-right, 0px)); }
   .hero-brand .reflection { left: 0; right: 0; padding-inline: max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
