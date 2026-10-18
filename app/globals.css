@@ -128,7 +128,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 @media (max-width: 700px) {
   .brand-lockup { font-size: clamp(26px, 7vw, 34px); }
   .hero { grid-template-columns: 1fr; }
-  .hero-content { min-height: 100svh; padding: 40px var(--gutter); justify-content: center; gap: 0; }
+  .hero-content { min-height: 100lvh; padding: 40px var(--gutter); justify-content: center; gap: 0; }
   .hero-brand .brand-lockup { justify-content: center; }
   .reflection { margin: 20px auto 0; font-size: 28px; max-width: 360px; text-align: center; }
   .hero-image { display: none; }
@@ -137,7 +137,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   .practice h2 { text-align: center; font-size: clamp(43px, 11.5vw, 66px); }
   .practice h3 { font-size: 26px; margin-top: 16px; }
   .practice-portrait-frame { width: min(100%, 240px); }
-  .practice-content { font-size: 16px; }
+  .practice-content { margin-top: 8px; font-size: 16px; }
   .practice-content p { font-size: 20px; }
   .practice-content ul { margin-top: 28px; }
   .site-footer { padding-top: 36px; }
