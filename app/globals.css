@@ -131,9 +131,17 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   .hero-content {
     /* Keep the next section below Safari's translucent bottom controls. */
     min-height: max(calc(100lvh + env(safe-area-inset-bottom, 0px)), var(--mobile-screen-height, 0px));
-    padding: max(40px, env(safe-area-inset-top, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px)) max(40px, env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px));
-    justify-content: center;
+    padding: 0;
+    justify-content: flex-start;
     gap: 0;
+  }
+  .hero-brand {
+    /* Centre the content in the visible viewport, independently of the backdrop. */
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: max(40px, env(safe-area-inset-top, 0px), env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    justify-content: center;
   }
   .hero-brand .brand-lockup { justify-content: center; }
   .reflection { margin: 20px auto 0; font-size: 28px; max-width: 360px; text-align: center; }
