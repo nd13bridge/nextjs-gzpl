@@ -23,7 +23,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .brand-symbol { display: block; flex: none; width: 1.05em; height: auto; }
 .brand-name-secondary { color: var(--muted); }
 .hero { display: grid; grid-template-columns: 1fr 1fr; }
-.hero-content { min-height: clamp(600px, 53vw, 790px); padding: clamp(110px, 12.7vw, 190px) 38px clamp(80px, 10vw, 150px) var(--gutter); display: flex; flex-direction: column; justify-content: space-between; gap: 100px; }
+.hero-content { min-height: clamp(600px, 53vw, 790px); padding: clamp(110px, 12.7vw, 190px) 38px var(--gutter) var(--gutter); display: flex; flex-direction: column; justify-content: flex-end; gap: 100px; }
 .hero-brand { container-type: inline-size; color: var(--gold); font-family: var(--serif); }
 .hero-brand .brand-lockup { font-size: clamp(22.4px, 8.8cqi, 54.4px); }
 .hero-brand .brand-name { font-size: 1.4em; letter-spacing: -.035em; }
@@ -34,6 +34,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   to { opacity: 1; }
 }
 .reflection { margin-top: 28px; color: #a9a295; font-family: var(--serif); font-size: clamp(26px, 2.5vw, 38px); line-height: 1.25; max-width: 580px; }
+.reflection span { display: block; }
 .hero-image { position: relative; min-width: 0; }
 .hero-image img { object-fit: cover; object-position: center; }
 .practices { border-top: 1px solid var(--rule); }
@@ -47,31 +48,35 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   --rule: #d5cbb9;
   color-scheme: light;
 }
-.practice-inner { display: grid; grid-template-columns: 340px minmax(0, 1fr); column-gap: clamp(32px, 4vw, 64px); row-gap: 28px; max-width: 1120px; margin-inline: auto; }
-.practice-person { text-align: center; }
-.practice h2 { grid-column: 1 / -1; text-align: center; color: var(--gold); font-size: clamp(48px, 5.7vw, 82px); line-height: 1.02; letter-spacing: -.04em; }
-.practice h3 { margin-top: 32px; font-size: clamp(23px, 2.1vw, 30px); line-height: 1.15; letter-spacing: -.02em; }
-.practice-portrait {
-  display: block;
+.practice-inner { display: grid; grid-template-columns: 340px minmax(0, 1fr); grid-template-areas: 'person title' 'person content'; grid-template-rows: auto 1fr; column-gap: clamp(32px, 4vw, 64px); row-gap: 24px; align-items: start; max-width: 1120px; margin-inline: auto; }
+.practice-person { grid-area: person; text-align: center; }
+.practice h2 { grid-area: title; text-align: left; color: var(--gold); font-size: clamp(48px, 5.7vw, 82px); line-height: 1.02; letter-spacing: -.04em; }
+.practice h3 { margin-top: 18px; font-size: clamp(25px, 2.2vw, 30px); font-weight: 500; line-height: 1.2; letter-spacing: -.015em; text-wrap: balance; }
+.practice-portrait-frame {
   width: min(100%, 280px);
   margin-inline: auto;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.practice:nth-child(odd) .practice-portrait-frame {
+  box-shadow: 0 4px 10px rgb(36 33 28 / 12%), 0 14px 30px rgb(36 33 28 / 20%);
+}
+.practice-portrait {
+  display: block;
+  width: 100%;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  -webkit-mask-image: linear-gradient(to bottom right, transparent, #000 22%, #000 78%, transparent);
-  mask-image: linear-gradient(to bottom right, transparent, #000 22%, #000 78%, transparent);
+  transform: scale(var(--portrait-scale, 1));
+  transform-origin: center top;
 }
-.practice:nth-child(odd) .practice-portrait {
-  -webkit-mask-image: none;
-  mask-image: none;
-  border: 1px solid var(--rule);
-  box-shadow: 0 6px 18px rgb(36 33 28 / 18%);
-}
-.practice-portrait + h3 { margin-top: 18px; }
-.practice-content { color: var(--muted); font-size: 18px; line-height: 1.75; }
-.practice-content p { max-width: 66ch; color: var(--text); }
-.practice-content ul { list-style: none; padding: 0; margin: 30px 0 0; }
-.practice-content li { position: relative; color: var(--tertiary); padding: 14px 0; border-bottom: 1px solid transparent; }
+#inmobiliario { --portrait-scale: 1.12; }
+#fiscal, #mercantil { --portrait-scale: 1.06; }
+.practice-content { grid-area: content; color: var(--muted); font-size: 17px; line-height: 1.55; }
+.practice-content p { max-width: 48ch; color: var(--text); font-size: 22px; line-height: 1.55; text-wrap: pretty; }
+.practice-content ul { list-style: none; padding: 0; margin: 36px 0 0; }
+.practice-content li { position: relative; color: var(--tertiary); padding: 14px 0; }
 .practice-content li:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -116,25 +121,28 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   .practice-inner { column-gap: 5%; grid-template-columns: 42% 1fr; }
   .practice h2 { font-size: 5.5vw; }
   .practice-content { font-size: 16px; }
+  .practice-content p { font-size: 20px; }
 }
 @media (max-width: 700px) {
   .brand-lockup { font-size: clamp(26px, 7vw, 34px); }
-  .site-footer { flex-wrap: wrap; }
-  .footer-contact { flex-direction: column; align-items: flex-end; gap: 8px; margin-left: auto; }
+  .site-footer { flex-wrap: wrap; row-gap: 24px; }
+  .footer-identity { flex-basis: 100%; min-width: 0; }
+  .footer-brand { justify-content: center; }
+  .footer-contact { width: 100%; flex-direction: column; align-items: stretch; gap: 10px; text-align: center; }
+  .footer-email { text-align: center; }
   .hero { grid-template-columns: 1fr; }
-  .hero-content { min-height: 0; padding: 70px var(--gutter) 32px; gap: 0; }
-  .reflection { font-size: 28px; max-width: 360px; }
-  .hero-image { height: 410px; }
-  .hero-image img { object-position: center 60%; }
+  .hero-content { min-height: 100svh; padding: 40px var(--gutter); justify-content: center; gap: 0; }
+  .hero-brand .brand-lockup { justify-content: center; }
+  .reflection { margin: 20px auto 0; font-size: 28px; max-width: 360px; text-align: center; }
+  .hero-image { display: none; }
   .practice { padding-block: 54px; }
-  .practice-inner { grid-template-columns: 1fr; gap: 32px; }
-  .practice h2 { font-size: clamp(43px, 11.5vw, 66px); }
-  .practice h3 { font-size: 24px; margin-top: 22px; }
-  .practice-portrait { width: min(100%, 240px); }
-  .practice-portrait + h3 { margin-top: 16px; }
-  .practice-content { font-size: 16px; line-height: 1.75; }
-  .practice-content ul { margin-top: 22px; }
-  .practice-content li { padding-block: 15px; }
+  .practice-inner { grid-template-columns: 1fr; grid-template-areas: 'title' 'person' 'content'; grid-template-rows: auto; gap: 36px; }
+  .practice h2 { text-align: center; font-size: clamp(43px, 11.5vw, 66px); }
+  .practice h3 { font-size: 26px; margin-top: 16px; }
+  .practice-portrait-frame { width: min(100%, 240px); }
+  .practice-content { font-size: 16px; }
+  .practice-content p { font-size: 20px; }
+  .practice-content ul { margin-top: 28px; }
   .site-footer { padding-top: 36px; }
 }
 @media (prefers-reduced-motion: reduce) {

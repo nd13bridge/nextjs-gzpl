@@ -6,7 +6,7 @@ export const firm = {
   secondaryName: 'Portillo',
   email: 'legal@gomezportillo.com',
   preview: true,
-  reflection: 'Territorio y patrimonio. Excelencia con nombre propio.',
+  reflection: ['Territorio y patrimonio.', 'Excelencia con nombre propio.'],
 };
 
 // Los asuntos descritos son una propuesta editorial, no casos reales ni credenciales.

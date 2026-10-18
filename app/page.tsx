@@ -30,7 +30,9 @@ export default function Home() {
                 <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
                 <span className="brand-name">{firm.primaryName}{' '}<span className="brand-name-secondary">{firm.secondaryName}</span></span>
               </BrandHeading>
-              <p className="reflection">{firm.reflection}</p>
+              <p className="reflection">
+                {firm.reflection.map((line) => <span key={line}>{line}</span>)}
+              </p>
             </div>
           </div>
           <div className="hero-image">
@@ -43,13 +45,15 @@ export default function Home() {
               <div className="practice-inner">
                 <h2 id={`${person.id}-heading`}>{person.specialty}</h2>
                 <div className="practice-person">
-                  <Image
-                    className="practice-portrait"
-                    src={portraits[person.id]}
-                    alt={`Retrato de ${person.name}`}
-                    sizes="(max-width: 700px) 240px, 280px"
-                    placeholder="blur"
-                  />
+                  <div className="practice-portrait-frame">
+                    <Image
+                      className="practice-portrait"
+                      src={portraits[person.id]}
+                      alt={`Retrato de ${person.name}`}
+                      sizes="(max-width: 700px) 240px, 280px"
+                      placeholder="blur"
+                    />
+                  </div>
                   <h3>{person.name}</h3>
                 </div>
                 <div className="practice-content">
