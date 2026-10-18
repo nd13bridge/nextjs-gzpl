@@ -32,7 +32,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   inset: 0;
   pointer-events: none;
   background: url('/images/urban-plan.svg') center center / cover no-repeat;
-  opacity: .14;
+  opacity: .12;
 }
 .hero-brand { position: relative; min-height: 100svh; container-type: inline-size; color: var(--gold); font-family: var(--serif); }
 .hero-brand .brand-lockup {
@@ -198,7 +198,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   }
   .hero-content::before {
     background-position: 57% center;
-    opacity: .15;
+    opacity: .13;
   }
   .hero-brand .brand-lockup { right: max(24px, env(safe-area-inset-right, 0px)); }
   .hero-brand .reflection { left: 0; right: 0; padding-inline: max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
