@@ -55,12 +55,14 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .hero-brand .brand-name-primary { grid-column: 1; grid-row: 1; }
 .hero-brand .brand-name-secondary { grid-column: 2; grid-row: 1; }
 .hero-brand .brand-descriptor {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 2;
-  justify-self: start;
-  margin-top: calc(.12em / .66968);
-  /* Cormorant Garamond: match Gomez's tracked width without stretching glyphs. */
-  font-size: .66968em;
+  justify-self: stretch;
+  display: flex;
+  justify-content: center;
+  gap: .65em;
+  margin-top: .1em;
+  font-size: .32em;
   letter-spacing: 0;
   color: var(--muted);
 }

@@ -32,7 +32,9 @@ export default function Home() {
                 <span className="brand-name" aria-label={`${firm.primaryName} ${firm.secondaryName} Abogados`}>
                   <span className="brand-name-primary" aria-hidden="true">{firm.primaryName}</span>
                   <span className="brand-name-secondary" aria-hidden="true">{firm.secondaryName}</span>
-                  <span className="brand-descriptor" aria-hidden="true">Abogados</span>
+                  <span className="brand-descriptor" aria-hidden="true">
+                    {'ABOGADOS'.split('').map((letter, index) => <span key={index}>{letter}</span>)}
+                  </span>
                 </span>
               </BrandHeading>
               <p className="reflection">
