@@ -23,7 +23,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .brand-symbol { display: block; flex: none; width: 1.05em; height: auto; }
 .brand-name-secondary { color: var(--muted); }
 .hero { display: grid; grid-template-columns: 1fr 1fr; }
-.hero-content { min-height: 100svh; padding: clamp(110px, 12.7vw, 190px) 38px var(--gutter) var(--gutter); display: flex; flex-direction: column; justify-content: flex-end; gap: 100px; }
+.hero-content { min-height: 100svh; padding: 0 38px 0 var(--gutter); display: flex; flex-direction: column; }
 .hero-content { position: relative; isolation: isolate; }
 .hero-content::before {
   content: '';
@@ -36,9 +36,36 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   /* Let the plan emerge above the brand and fade behind the copy. */
   mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 85%) 35%, rgb(0 0 0 / 45%) 58%, rgb(0 0 0 / 16%) 76%, rgb(0 0 0 / 10%) 100%);
 }
-.hero-brand { container-type: inline-size; color: var(--gold); font-family: var(--serif); }
-.hero-brand .brand-lockup { font-size: clamp(22.4px, 8.8cqi, 54.4px); }
-.hero-brand .brand-name { font-size: 1.4em; letter-spacing: -.035em; }
+.hero-brand { position: relative; min-height: 100svh; container-type: inline-size; color: var(--gold); font-family: var(--serif); }
+.hero-brand .brand-lockup {
+  position: absolute;
+  right: 0;
+  bottom: max(64px, env(safe-area-inset-bottom, 0px));
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: start;
+  font-size: clamp(22.4px, 8.8cqi, 54.4px);
+}
+.hero-brand .brand-symbol { margin-top: .175em; }
+.hero-brand .brand-name {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: .18em;
+  font-size: 1.4em;
+  letter-spacing: -.035em;
+}
+.hero-brand .brand-name-primary { grid-column: 1; grid-row: 1; }
+.hero-brand .brand-name-secondary { grid-column: 2; grid-row: 1; }
+.hero-brand .brand-descriptor {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  margin-top: calc(.12em / .66968);
+  /* Cormorant Garamond: match Gomez's tracked width without stretching glyphs. */
+  font-size: .66968em;
+  letter-spacing: 0;
+  color: var(--muted);
+}
 .hero-brand h1[data-entrance="pending"] { opacity: .15; }
 .hero-brand h1[data-entrance="visible"] { animation: brand-entrance 600ms ease-out 120ms both; }
 @keyframes brand-entrance {
@@ -47,6 +74,17 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 }
 .reflection { margin-top: 28px; color: #a9a295; font-family: var(--serif); font-size: clamp(26px, 2.5vw, 38px); line-height: 1.25; max-width: 580px; }
 .reflection span { display: block; }
+.hero-brand .reflection {
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * var(--gutter));
+  right: -38px;
+  transform: translateY(-50%);
+  padding-inline: 38px;
+  margin: 0;
+  max-width: none;
+  text-align: center;
+}
 .hero-image { position: relative; min-width: 0; }
 .hero-image img { object-fit: cover; object-position: center; }
 .practices { border-top: 1px solid var(--rule); }
@@ -129,8 +167,13 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .legal-page dd { margin: 0; }
 .legal-page .legal-draft { margin-top: 24px; padding-left: 18px; border-left: 1px solid var(--gold); color: var(--muted); }
 @media (min-width: 1800px) { body { max-width: 1800px; margin-inline: auto; } }
+@media (min-width: 701px) {
+  .hero-brand .brand-lockup { font-size: clamp(19.04px, 7.48cqi, 44px); }
+}
 @media (max-width: 1000px) and (min-width: 701px) {
   .hero-content { padding-right: 24px; }
+  .hero-brand .brand-lockup { right: 14px; }
+  .hero-brand .reflection { right: -24px; }
   .practice { padding-block: 65px; }
   .practice-inner { font-size: 20px; }
   .practice h2 { font-size: 5.5vw; }
@@ -160,7 +203,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
     opacity: .24;
     mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 90%) 22%, rgb(0 0 0 / 40%) 43%, rgb(0 0 0 / 40%) 65%, rgb(0 0 0 / 85%) 88%, rgb(0 0 0 / 55%) 100%);
   }
-  .hero-brand .brand-lockup { justify-content: center; }
+  .hero-brand .brand-lockup { right: max(24px, env(safe-area-inset-right, 0px)); }
+  .hero-brand .reflection { left: 0; right: 0; padding-inline: max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
   .reflection { margin: 20px auto 0; font-size: 28px; max-width: 360px; text-align: center; }
   .hero-image { display: none; }
   .practice { padding-block: 54px; }

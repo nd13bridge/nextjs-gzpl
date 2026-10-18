@@ -29,7 +29,11 @@ export default function Home() {
             <div className="hero-brand">
               <BrandHeading>
                 <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
-                <span className="brand-name">{firm.primaryName}{' '}<span className="brand-name-secondary">{firm.secondaryName}</span></span>
+                <span className="brand-name" aria-label={`${firm.primaryName} ${firm.secondaryName} Abogados`}>
+                  <span className="brand-name-primary" aria-hidden="true">{firm.primaryName}</span>
+                  <span className="brand-name-secondary" aria-hidden="true">{firm.secondaryName}</span>
+                  <span className="brand-descriptor" aria-hidden="true">Abogados</span>
+                </span>
               </BrandHeading>
               <p className="reflection">
                 {firm.reflection.map((line) => <span key={line}>{line}</span>)}
