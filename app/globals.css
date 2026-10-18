@@ -24,6 +24,18 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .brand-name-secondary { color: var(--muted); }
 .hero { display: grid; grid-template-columns: 1fr 1fr; }
 .hero-content { min-height: 100svh; padding: clamp(110px, 12.7vw, 190px) 38px var(--gutter) var(--gutter); display: flex; flex-direction: column; justify-content: flex-end; gap: 100px; }
+.hero-content { position: relative; isolation: isolate; }
+.hero-content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: url('/images/urban-plan.svg') center center / cover no-repeat;
+  opacity: .30;
+  /* Let the plan emerge above the brand and fade behind the copy. */
+  mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 85%) 35%, rgb(0 0 0 / 45%) 58%, rgb(0 0 0 / 16%) 76%, rgb(0 0 0 / 10%) 100%);
+}
 .hero-brand { container-type: inline-size; color: var(--gold); font-family: var(--serif); }
 .hero-brand .brand-lockup { font-size: clamp(22.4px, 8.8cqi, 54.4px); }
 .hero-brand .brand-name { font-size: 1.4em; letter-spacing: -.035em; }
@@ -142,6 +154,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
     flex-direction: column;
     padding: max(40px, env(safe-area-inset-top, 0px), env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
     justify-content: center;
+  }
+  .hero-content::before {
+    background-position: 57% center;
+    opacity: .34;
+    mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 90%) 22%, rgb(0 0 0 / 40%) 43%, rgb(0 0 0 / 40%) 65%, rgb(0 0 0 / 85%) 88%, rgb(0 0 0 / 55%) 100%);
   }
   .hero-brand .brand-lockup { justify-content: center; }
   .reflection { margin: 20px auto 0; font-size: 28px; max-width: 360px; text-align: center; }
