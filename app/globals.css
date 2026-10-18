@@ -23,7 +23,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .brand-symbol { display: block; flex: none; width: 1.05em; height: auto; }
 .brand-name-secondary { color: var(--muted); }
 .hero { display: grid; grid-template-columns: 1fr 1fr; }
-.hero-content { min-height: clamp(600px, 53vw, 790px); padding: clamp(110px, 12.7vw, 190px) 38px var(--gutter) var(--gutter); display: flex; flex-direction: column; justify-content: flex-end; gap: 100px; }
+.hero-content { min-height: 100svh; padding: clamp(110px, 12.7vw, 190px) 38px var(--gutter) var(--gutter); display: flex; flex-direction: column; justify-content: flex-end; gap: 100px; }
 .hero-brand { container-type: inline-size; color: var(--gold); font-family: var(--serif); }
 .hero-brand .brand-lockup { font-size: clamp(22.4px, 8.8cqi, 54.4px); }
 .hero-brand .brand-name { font-size: 1.4em; letter-spacing: -.035em; }
@@ -118,7 +118,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .legal-page .legal-draft { margin-top: 24px; padding-left: 18px; border-left: 1px solid var(--gold); color: var(--muted); }
 @media (min-width: 1800px) { body { max-width: 1800px; margin-inline: auto; } }
 @media (max-width: 1000px) and (min-width: 701px) {
-  .hero-content { padding-right: 24px; min-height: 620px; }
+  .hero-content { padding-right: 24px; }
   .practice { padding-block: 65px; }
   .practice-inner { font-size: 20px; }
   .practice h2 { font-size: 5.5vw; }
