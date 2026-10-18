@@ -24,7 +24,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .brand-name-secondary { color: var(--muted); }
 .hero { display: grid; grid-template-columns: 1fr 1fr; }
 .hero-content { min-height: 100svh; padding: 0 38px 0 var(--gutter); display: flex; flex-direction: column; }
-.hero-content { position: relative; isolation: isolate; }
+.hero-content { position: relative; isolation: isolate; overflow: clip; }
 .hero-content::before {
   content: '';
   position: absolute;
@@ -33,8 +33,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   pointer-events: none;
   background: url('/images/urban-plan.svg') center center / cover no-repeat;
   opacity: .22;
-  /* Let the plan emerge above the brand and fade behind the copy. */
-  mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 85%) 35%, rgb(0 0 0 / 45%) 58%, rgb(0 0 0 / 16%) 76%, rgb(0 0 0 / 10%) 100%);
 }
 .hero-brand { position: relative; min-height: 100svh; container-type: inline-size; color: var(--gold); font-family: var(--serif); }
 .hero-brand .brand-lockup {
@@ -85,6 +83,19 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   max-width: none;
   text-align: center;
 }
+/* Attach the dark backdrops to the copy so they follow every viewport change. */
+.hero-brand .brand-lockup,
+.hero-brand .reflection { isolation: isolate; }
+.hero-brand .brand-lockup::before,
+.hero-brand .reflection::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -48px -40px;
+  background: radial-gradient(ellipse, #000 35%, rgb(0 0 0 / 94%) 55%, transparent 75%);
+  pointer-events: none;
+}
+.hero-brand .reflection::before { inset: -56px -24px; }
 .hero-image { position: relative; min-width: 0; }
 .hero-image img { object-fit: cover; object-position: center; }
 .practices { border-top: 1px solid var(--rule); }
@@ -201,7 +212,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   .hero-content::before {
     background-position: 57% center;
     opacity: .24;
-    mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 90%) 22%, rgb(0 0 0 / 40%) 43%, rgb(0 0 0 / 40%) 65%, rgb(0 0 0 / 85%) 88%, rgb(0 0 0 / 55%) 100%);
   }
   .hero-brand .brand-lockup { right: max(24px, env(safe-area-inset-right, 0px)); }
   .hero-brand .reflection { left: 0; right: 0; padding-inline: max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
