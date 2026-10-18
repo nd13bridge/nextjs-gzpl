@@ -9,6 +9,7 @@ import pabloPortrait from '@/public/images/pablo-ferrando.webp';
 import { firm, professionals } from '@/lib/content';
 import AnimatedMatters from './components/animated-matters';
 import BrandHeading from './components/brand-heading';
+import HeroContent from './components/hero-content';
 
 const portraits = {
   urbanismo: raulPortrait,
@@ -24,7 +25,7 @@ export default function Home() {
       <a className="skip-link" href="#presentacion">Saltar al contenido</a>
       <main id="presentacion">
         <section className="hero" aria-labelledby="main-heading">
-          <div className="hero-content">
+          <HeroContent>
             <div className="hero-brand">
               <BrandHeading>
                 <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
@@ -34,7 +35,7 @@ export default function Home() {
                 {firm.reflection.map((line) => <span key={line}>{line}</span>)}
               </p>
             </div>
-          </div>
+          </HeroContent>
           <div className="hero-image">
             <Image src={architecture} alt="" fill priority sizes="(max-width: 700px) 100vw, 50vw" placeholder="blur" />
           </div>

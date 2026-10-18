@@ -130,7 +130,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   .hero { grid-template-columns: 1fr; }
   .hero-content {
     /* Keep the next section below Safari's translucent bottom controls. */
-    min-height: calc(100lvh + env(safe-area-inset-bottom, 0px));
+    min-height: max(calc(100lvh + env(safe-area-inset-bottom, 0px)), var(--mobile-screen-height, 0px));
     padding: max(40px, env(safe-area-inset-top, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px)) max(40px, env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px));
     justify-content: center;
     gap: 0;
