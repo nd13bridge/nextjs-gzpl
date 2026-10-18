@@ -189,8 +189,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
     gap: 0;
   }
   .hero-brand {
-    /* Centre the content in the visible viewport, independently of the backdrop. */
-    min-height: 100dvh;
+    /* Keep the brand position stable as mobile browser controls expand/collapse. */
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     padding: max(40px, env(safe-area-inset-top, 0px), env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
