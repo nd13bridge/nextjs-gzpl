@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '@fontsource/cormorant-garamond/latin-400.css';
 import '@fontsource/cormorant-garamond/latin-500.css';
 import '@fontsource/manrope/latin-400.css';
@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: firm.name,
   description: `${firm.name}. Abogados. Urbanismo, inmobiliario, fiscal, administrativo y mercantil.`,
   robots: { index: false, follow: false },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#000000',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -10,7 +10,7 @@
   --gutter: clamp(24px, 5.2vw, 88px);
 }
 * { box-sizing: border-box; }
-html { color-scheme: dark; scroll-padding-top: 30px; }
+html { background: var(--black); color-scheme: dark; scroll-padding-top: 30px; }
 body { margin: 0; background: var(--black); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--gold); color: var(--black); }
 a { color: inherit; text-underline-offset: 7px; }
@@ -128,7 +128,13 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 @media (max-width: 700px) {
   .brand-lockup { font-size: clamp(26px, 7vw, 34px); }
   .hero { grid-template-columns: 1fr; }
-  .hero-content { min-height: 100lvh; padding: 40px var(--gutter); justify-content: center; gap: 0; }
+  .hero-content {
+    /* Keep the next section below Safari's translucent bottom controls. */
+    min-height: calc(100lvh + env(safe-area-inset-bottom, 0px));
+    padding: max(40px, env(safe-area-inset-top, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px)) max(40px, env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px));
+    justify-content: center;
+    gap: 0;
+  }
   .hero-brand .brand-lockup { justify-content: center; }
   .reflection { margin: 20px auto 0; font-size: 28px; max-width: 360px; text-align: center; }
   .hero-image { display: none; }
@@ -140,7 +146,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   .practice-content { margin-top: 8px; font-size: 16px; }
   .practice-content p { font-size: 20px; }
   .practice-content ul { margin-top: 28px; }
-  .site-footer { padding-top: 36px; }
+  .site-footer { padding-top: 36px; padding-bottom: max(46px, env(safe-area-inset-bottom, 0px)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-brand h1[data-entrance="visible"],
