@@ -48,10 +48,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   --rule: #d5cbb9;
   color-scheme: light;
 }
-.practice-inner { display: grid; grid-template-columns: 340px minmax(0, 1fr); grid-template-areas: 'person title' 'person content'; grid-template-rows: auto 1fr; column-gap: clamp(32px, 4vw, 64px); row-gap: 24px; align-items: start; max-width: 1120px; margin-inline: auto; }
+.practice-inner { --practice-gap: clamp(32px, 4vw, 64px); display: grid; grid-template-columns: 280px minmax(0, 1fr); grid-template-areas: 'person title' 'person content'; grid-template-rows: auto 1fr; column-gap: var(--practice-gap); row-gap: 24px; align-items: start; font-size: 22px; max-width: calc(280px + var(--practice-gap) + 48ch); margin-inline: auto; }
 .practice-person { grid-area: person; text-align: center; }
 .practice h2 { grid-area: title; text-align: left; color: var(--gold); font-size: clamp(48px, 5.7vw, 82px); line-height: 1.02; letter-spacing: -.04em; }
-.practice h3 { margin-top: 18px; font-size: clamp(25px, 2.2vw, 30px); font-weight: 500; line-height: 1.2; letter-spacing: -.015em; text-wrap: balance; }
+.practice h3 { margin-top: 18px; font-size: clamp(25px, 2.2vw, 28.9px); font-weight: 500; line-height: 1.2; letter-spacing: -.015em; text-wrap: balance; }
 .practice-portrait-frame {
   width: min(100%, 280px);
   margin-inline: auto;
@@ -74,7 +74,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 #inmobiliario { --portrait-scale: 1.12; }
 #fiscal, #mercantil { --portrait-scale: 1.06; }
 .practice-content { grid-area: content; color: var(--muted); font-size: 17px; line-height: 1.55; }
-.practice-content p { max-width: 48ch; color: var(--text); font-size: 22px; line-height: 1.55; text-wrap: pretty; }
+.practice-content p { color: var(--text); font-size: 22px; line-height: 1.55; text-wrap: pretty; }
 .practice-content ul { list-style: none; padding: 0; margin: 36px 0 0; }
 .practice-content li { position: relative; color: var(--tertiary); padding: 14px 0; }
 .practice-content li:not(:last-child)::after {
@@ -98,14 +98,16 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   to { transform: scaleX(1); opacity: .48; }
 }
 .practice-content li:last-child { border-bottom: 0; padding-bottom: 0; }
-.site-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 46px var(--gutter); }
+.site-footer { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 46px var(--gutter); }
+.footer-identity { width: 100%; min-width: 0; }
+.footer-brand.brand-lockup { justify-content: center; font-size: 36px; }
 .footer-brand .brand-symbol { width: .75em; }
-.footer-contact { display: flex; align-items: baseline; justify-content: flex-end; gap: 14px; text-align: right; }
-.footer-legal { position: relative; display: inline-block; font-size: clamp(14px, 1.35vw, 18px); line-height: 1.5; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color 180ms ease; }
+.footer-contact { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.footer-legal { position: relative; display: inline-block; font-size: 18px; line-height: 1.5; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color 180ms ease; }
 .footer-legal::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left center; transition: transform 180ms ease; pointer-events: none; }
 .footer-legal:is(:hover, :focus-visible) { color: var(--gold); }
 .footer-legal:is(:hover, :focus-visible)::after { transform: scaleX(1); }
-.footer-email { font-family: var(--sans); font-size: clamp(14px, 1.35vw, 18px); line-height: 1.5; color: var(--muted); white-space: nowrap; text-align: right; }
+.footer-email { font-family: var(--sans); font-size: 18px; line-height: 1.5; color: var(--muted); white-space: nowrap; text-align: center; }
 .legal-page { max-width: 960px; margin-inline: auto; padding: 64px var(--gutter) 80px; }
 .legal-page h1 { margin-top: 36px; color: var(--gold); font-size: clamp(48px, 7vw, 80px); line-height: 1.1; }
 .legal-page h2 { margin-bottom: 14px; color: var(--gold); font-size: 32px; }
@@ -118,18 +120,13 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 @media (max-width: 1000px) and (min-width: 701px) {
   .hero-content { padding-right: 24px; min-height: 620px; }
   .practice { padding-block: 65px; }
-  .practice-inner { column-gap: 5%; grid-template-columns: 42% 1fr; }
+  .practice-inner { font-size: 20px; }
   .practice h2 { font-size: 5.5vw; }
   .practice-content { font-size: 16px; }
   .practice-content p { font-size: 20px; }
 }
 @media (max-width: 700px) {
   .brand-lockup { font-size: clamp(26px, 7vw, 34px); }
-  .site-footer { flex-wrap: wrap; row-gap: 24px; }
-  .footer-identity { flex-basis: 100%; min-width: 0; }
-  .footer-brand { justify-content: center; }
-  .footer-contact { width: 100%; flex-direction: column; align-items: stretch; gap: 10px; text-align: center; }
-  .footer-email { text-align: center; }
   .hero { grid-template-columns: 1fr; }
   .hero-content { min-height: 100svh; padding: 40px var(--gutter); justify-content: center; gap: 0; }
   .hero-brand .brand-lockup { justify-content: center; }
