@@ -1,8 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import architecture from '@/public/images/architecture.png';
-import lawyerPortrait from '@/public/images/lawyer-portrait-ai.png';
+import raulPortrait from '@/public/images/raul-gomez-zaragoza.webp';
+import fernandoPortrait from '@/public/images/fernando-portillo-laguna.webp';
+import carlosPortrait from '@/public/images/carlos-alarcia.webp';
+import francisPortrait from '@/public/images/francis-lario-segarra.webp';
+import pabloPortrait from '@/public/images/pablo-ferrando.webp';
 import { firm, professionals } from '@/lib/content';
+import AnimatedMatters from './components/animated-matters';
+import BrandHeading from './components/brand-heading';
+
+const portraits = {
+  urbanismo: raulPortrait,
+  inmobiliario: fernandoPortrait,
+  fiscal: carlosPortrait,
+  administrativo: francisPortrait,
+  mercantil: pabloPortrait,
+};
 
 export default function Home() {
   return (
@@ -12,8 +26,10 @@ export default function Home() {
         <section className="hero" aria-labelledby="main-heading">
           <div className="hero-content">
             <div className="hero-brand">
-              <h1 id="main-heading">GZPL <span className="profession">Abogados</span></h1>
-              <p className="brand-specialties">Urbanismo <span aria-hidden="true">·</span> Inmobiliario <span aria-hidden="true">·</span> Fiscal</p>
+              <BrandHeading>
+                <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
+                <span className="brand-name">{firm.primaryName}{' '}<span className="brand-name-secondary">{firm.secondaryName}</span></span>
+              </BrandHeading>
               <p className="reflection">{firm.reflection}</p>
             </div>
           </div>
@@ -24,22 +40,22 @@ export default function Home() {
         <div className="practices">
           {professionals.map((person) => (
             <section className="practice" id={person.id} key={person.id} aria-labelledby={`${person.id}-heading`}>
-              <h2 id={`${person.id}-heading`}>{person.specialty}</h2>
-              <div className="practice-person">
-                <Image
-                  className="practice-portrait"
-                  src={lawyerPortrait}
-                  alt="Retrato ilustrativo de un abogado con traje, generado con IA"
-                  sizes="(max-width: 700px) 240px, 280px"
-                  placeholder="blur"
-                />
-                <h3>{person.name}</h3>
-              </div>
-              <div className="practice-content">
-                <p>{person.description}</p>
-                <ul aria-label={`Asuntos de ${person.specialty.toLowerCase()}`}>
-                  {person.matters.map((matter) => <li key={matter}>{matter}</li>)}
-                </ul>
+              <div className="practice-inner">
+                <h2 id={`${person.id}-heading`}>{person.specialty}</h2>
+                <div className="practice-person">
+                  <Image
+                    className="practice-portrait"
+                    src={portraits[person.id]}
+                    alt={`Retrato de ${person.name}`}
+                    sizes="(max-width: 700px) 240px, 280px"
+                    placeholder="blur"
+                  />
+                  <h3>{person.name}</h3>
+                </div>
+                <div className="practice-content">
+                  <p>{person.description}</p>
+                  <AnimatedMatters matters={person.matters} label={`Asuntos de ${person.specialty.toLowerCase()}`} />
+                </div>
               </div>
             </section>
           ))}
@@ -47,8 +63,10 @@ export default function Home() {
       </main>
       <footer className="site-footer">
         <div className="footer-identity">
-          <p className="footer-brand"><span className="wordmark">GZPL</span><span>Abogados</span></p>
-          <p className="footer-specialties">Urbanismo <span aria-hidden="true">·</span> Inmobiliario <span aria-hidden="true">·</span> Fiscal</p>
+          <p className="footer-brand brand-lockup">
+            <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
+            <span className="brand-name">{firm.primaryName}{' '}<span className="brand-name-secondary">{firm.secondaryName}</span></span>
+          </p>
         </div>
         <div className="footer-contact">
           <p className="footer-email">{firm.email}</p>

@@ -3,10 +3,11 @@ import '@fontsource/cormorant-garamond/latin-400.css';
 import '@fontsource/cormorant-garamond/latin-500.css';
 import '@fontsource/manrope/latin-400.css';
 import './globals.css';
+import { firm } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'GZPL | Gómez Zaragoza · Portillo Laguna',
-  description: 'Gómez Zaragoza · Portillo Laguna. Abogados. Urbanismo, inmobiliario, fiscal, administrativo y mercantil.',
+  title: firm.name,
+  description: `${firm.name}. Abogados. Urbanismo, inmobiliario, fiscal, administrativo y mercantil.`,
   robots: { index: false, follow: false },
 };
 
