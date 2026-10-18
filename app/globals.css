@@ -32,7 +32,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   inset: 0;
   pointer-events: none;
   background: url('/images/urban-plan.svg') center center / cover no-repeat;
-  opacity: .30;
+  opacity: .22;
   /* Let the plan emerge above the brand and fade behind the copy. */
   mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 85%) 35%, rgb(0 0 0 / 45%) 58%, rgb(0 0 0 / 16%) 76%, rgb(0 0 0 / 10%) 100%);
 }
@@ -157,7 +157,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
   }
   .hero-content::before {
     background-position: 57% center;
-    opacity: .34;
+    opacity: .24;
     mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 90%) 22%, rgb(0 0 0 / 40%) 43%, rgb(0 0 0 / 40%) 65%, rgb(0 0 0 / 85%) 88%, rgb(0 0 0 / 55%) 100%);
   }
   .hero-brand .brand-lockup { justify-content: center; }
