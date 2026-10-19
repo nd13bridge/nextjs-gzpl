@@ -202,7 +202,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
     background-position: 57% center;
     opacity: .13;
   }
-  .hero-brand .brand-lockup { right: max(24px, env(safe-area-inset-right, 0px)); }
+  .hero-brand .brand-lockup { left: 50%; right: auto; transform: translateX(-50%); }
   .hero-brand .reflection { left: 0; right: 0; padding-inline: max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
   .reflection { margin: 20px auto 0; font-size: 28px; max-width: 360px; text-align: center; }
   .hero-image { display: none; }
