@@ -4,7 +4,8 @@ export const firm = {
   fullName: 'Fernando Portillo Abogados',
   primaryName: 'Fernando',
   secondaryName: 'Portillo',
-  email: 'legal@gomezportillo.com',
+  phone: '666 271 818',
+  email: 'info@levanteabogados.com',
   preview: true,
   reflection: ['Territorio y patrimonio.', 'Excelencia con nombre propio.'],
 };
@@ -12,28 +13,15 @@ export const firm = {
 // Los asuntos descritos son una propuesta editorial, no casos reales ni credenciales.
 export const professionals = [
   {
+    slug: 'fernando-portillo-laguna',
     id: 'inmobiliario', name: 'Fernando Portillo Laguna', specialty: 'Inmobiliario',
     description: 'Asesoramiento en operaciones inmobiliarias y en las relaciones jurídicas vinculadas a la propiedad, la promoción y el arrendamiento.',
     matters: ['Compraventas y revisión jurídica de activos', 'Promoción y contratación inmobiliaria', 'Arrendamientos y controversias sobre la propiedad'],
   },
   {
-    id: 'urbanismo', name: 'Raúl Gómez Zaragoza', specialty: 'Urbanismo',
-    description: 'Asesoramiento en la transformación y el uso del suelo, desde el planeamiento hasta la ejecución de actuaciones urbanísticas.',
-    matters: ['Planeamiento y gestión urbanística', 'Licencias y disciplina urbanística', 'Juntas de compensación y convenios'],
-  },
-  {
-    id: 'fiscal', name: 'Carlos Alarcia Pineda', specialty: 'Fiscal',
-    description: 'Análisis de las implicaciones tributarias de las decisiones empresariales y patrimoniales, así como de las relaciones con la Administración tributaria.',
-    matters: ['Fiscalidad de empresas y patrimonios', 'Planificación tributaria de operaciones y sucesiones', 'Inspecciones, reclamaciones y recursos tributarios'],
-  },
-  {
-    id: 'administrativo', name: 'Francis Lario Segarra', specialty: 'Administrativo',
-    description: 'Asistencia jurídica en las relaciones con las administraciones públicas y en la defensa de los intereses de particulares y empresas ante su actuación.',
-    matters: ['Contratación pública y procedimientos de licitación', 'Procedimientos sancionadores y responsabilidad patrimonial', 'Recursos administrativos y contencioso-administrativos'],
-  },
-  {
-    id: 'mercantil', name: 'Pablo Ferrando', specialty: 'Mercantil',
-    description: 'Asesoramiento en la estructura jurídica de la empresa, sus operaciones y las relaciones entre socios, con atención a la continuidad del negocio.',
-    matters: ['Derecho societario y pactos entre socios', 'Adquisiciones y reorganizaciones empresariales', 'Contratación mercantil y conflictos societarios'],
+    slug: 'emma-tania-de-la-gala-gallego',
+    id: 'derecho-corporativo', name: 'Emma Tania de la Gala Gallego', specialty: 'Derecho corporativo',
+    description: 'Asesora a empresas en sus operaciones, desde la revisión de contratos hasta la negociación de acuerdos.',
+    matters: ['Asesoramiento jurídico a empresas', 'Contratación', 'Negociación de acuerdos'],
   },
 ] as const;

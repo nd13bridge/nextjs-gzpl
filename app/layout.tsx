@@ -7,7 +7,7 @@ import { firm } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: firm.name,
-  description: `${firm.name}. Inmobiliario, urbanismo, fiscal, administrativo y mercantil.`,
+  description: `${firm.name}. Asesoramiento en derecho inmobiliario y derecho corporativo.`,
   robots: { index: false, follow: false },
 };
 
@@ -15,7 +15,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#000000',
+  themeColor: '#171817',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -1,23 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import architecture from '@/public/images/architecture.png';
-import raulPortrait from '@/public/images/raul-gomez-zaragoza.webp';
-import fernandoPortrait from '@/public/images/fernando-portillo-laguna-fondo-blanco.webp';
-import carlosPortrait from '@/public/images/carlos-alarcia.webp';
-import francisPortrait from '@/public/images/francis-lario-segarra-fondo-blanco.webp';
-import pabloPortrait from '@/public/images/pablo-ferrando.webp';
+import { portraits } from '@/lib/portraits';
 import { firm, professionals } from '@/lib/content';
 import AnimatedMatters from './components/animated-matters';
 import BrandHeading from './components/brand-heading';
 import HeroContent from './components/hero-content';
-
-const portraits = {
-  urbanismo: raulPortrait,
-  inmobiliario: fernandoPortrait,
-  fiscal: carlosPortrait,
-  administrativo: francisPortrait,
-  mercantil: pabloPortrait,
-};
 
 export default function Home() {
   return (
@@ -55,13 +43,16 @@ export default function Home() {
                   <div className="practice-portrait-frame">
                     <Image
                       className="practice-portrait"
-                      src={portraits[person.id]}
-                      alt={`Retrato de ${person.name}`}
+                      src={portraits[person.id].src}
+                      alt={portraits[person.id].alt}
                       sizes="(max-width: 700px) 240px, 280px"
                       placeholder="blur"
                     />
                   </div>
                   <h3>{person.name}</h3>
+                  <Link className="profile-link" href={`/${person.slug}`} aria-label={`Ver perfil de ${person.name}`}>
+                    Ver perfil <span aria-hidden="true">↗</span>
+                  </Link>
                 </div>
                 <div className="practice-content">
                   <p>{person.description}</p>
@@ -86,7 +77,8 @@ export default function Home() {
           </p>
         </div>
         <div className="footer-contact">
-          <p className="footer-email">{firm.email}</p>
+          <a className="footer-contact-detail" href={`tel:+34${firm.phone.replaceAll(' ', '')}`}>{firm.phone}</a>
+          <a className="footer-contact-detail" href={`mailto:${firm.email}`}>{firm.email}</a>
           <Link className="footer-legal" href="/aviso-legal">Aviso Legal</Link>
         </div>
       </footer>
