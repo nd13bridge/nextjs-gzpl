@@ -28,8 +28,8 @@ export default function Home() {
           <HeroContent>
             <div className="hero-brand">
               <BrandHeading>
-                <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
                 <span className="brand-name" aria-label={`${firm.primaryName} ${firm.secondaryName} Abogados`}>
+                  <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
                   <span className="brand-name-primary" aria-hidden="true">{firm.primaryName}</span>
                   <span className="brand-name-secondary" aria-hidden="true">{firm.secondaryName}</span>
                   <span className="brand-descriptor" aria-hidden="true">
@@ -75,8 +75,8 @@ export default function Home() {
       <footer className="site-footer">
         <div className="footer-identity">
           <p className="footer-brand brand-lockup">
-            <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
             <span className="brand-name" aria-label={`${firm.primaryName} ${firm.secondaryName} Abogados`}>
+              <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
               <span className="brand-name-primary" aria-hidden="true">{firm.primaryName}</span>
               <span className="brand-name-secondary" aria-hidden="true">{firm.secondaryName}</span>
               <span className="brand-descriptor" aria-hidden="true">

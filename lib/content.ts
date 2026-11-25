@@ -1,8 +1,8 @@
 // Contenido de presentación pendiente de validación por el despacho.
 export const firm = {
-  name: 'Gomez Portillo',
-  fullName: 'Gomez Portillo',
-  primaryName: 'Gomez',
+  name: 'Fernando Portillo Abogados',
+  fullName: 'Fernando Portillo Abogados',
+  primaryName: 'Fernando',
   secondaryName: 'Portillo',
   email: 'legal@gomezportillo.com',
   preview: true,
@@ -12,14 +12,14 @@ export const firm = {
 // Los asuntos descritos son una propuesta editorial, no casos reales ni credenciales.
 export const professionals = [
   {
-    id: 'urbanismo', name: 'Raúl Gómez Zaragoza', specialty: 'Urbanismo',
-    description: 'Asesoramiento en la transformación y el uso del suelo, desde el planeamiento hasta la ejecución de actuaciones urbanísticas.',
-    matters: ['Planeamiento y gestión urbanística', 'Licencias y disciplina urbanística', 'Juntas de compensación y convenios'],
-  },
-  {
     id: 'inmobiliario', name: 'Fernando Portillo Laguna', specialty: 'Inmobiliario',
     description: 'Asesoramiento en operaciones inmobiliarias y en las relaciones jurídicas vinculadas a la propiedad, la promoción y el arrendamiento.',
     matters: ['Compraventas y revisión jurídica de activos', 'Promoción y contratación inmobiliaria', 'Arrendamientos y controversias sobre la propiedad'],
+  },
+  {
+    id: 'urbanismo', name: 'Raúl Gómez Zaragoza', specialty: 'Urbanismo',
+    description: 'Asesoramiento en la transformación y el uso del suelo, desde el planeamiento hasta la ejecución de actuaciones urbanísticas.',
+    matters: ['Planeamiento y gestión urbanística', 'Licencias y disciplina urbanística', 'Juntas de compensación y convenios'],
   },
   {
     id: 'fiscal', name: 'Carlos Alarcia Pineda', specialty: 'Fiscal',

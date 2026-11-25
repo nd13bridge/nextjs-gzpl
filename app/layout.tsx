@@ -7,7 +7,7 @@ import { firm } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: firm.name,
-  description: `${firm.name}. Abogados. Urbanismo, inmobiliario, fiscal, administrativo y mercantil.`,
+  description: `${firm.name}. Inmobiliario, urbanismo, fiscal, administrativo y mercantil.`,
   robots: { index: false, follow: false },
 };
 
