@@ -77,9 +77,9 @@ export default function Home() {
           </p>
         </div>
         <div className="footer-contact">
-          <a className="footer-contact-detail" href={`tel:+34${firm.phone.replaceAll(' ', '')}`}>{firm.phone}</a>
-          <a className="footer-contact-detail" href={`mailto:${firm.email}`}>{firm.email}</a>
-          <Link className="footer-legal" href="/aviso-legal">Aviso Legal</Link>
+          <a className="footer-link-animated" href={`tel:+34${firm.phone.replaceAll(' ', '')}`}>(+34) {firm.phone}</a>
+          <a className="footer-link-animated" href={`mailto:${firm.email}`}>{firm.email}</a>
+          <Link className="footer-link-animated" href="/aviso-legal">Aviso Legal</Link>
         </div>
       </footer>
     </>
