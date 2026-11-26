@@ -46,10 +46,10 @@ export default async function ServicePage({ params }: Props) {
               <p>{text}</p>
             </section>
           ))}
+          <Link className="service-back" href="/#especialidades">Volver</Link>
         </div>
       </main>
       <SiteFooter />
-      <Link className="service-back" href="/#especialidades">Volver</Link>
     </>
   );
 }
