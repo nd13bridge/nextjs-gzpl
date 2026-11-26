@@ -1,79 +1,55 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import FirmLogo from '@/app/components/firm-logo';
+import SiteFooter from '@/app/components/site-footer';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { firm, professionals } from '@/lib/content';
-import { profiles } from '@/lib/lawyer-profiles';
-import { portraits } from '@/lib/portraits';
+import { firm } from '@/lib/content';
+import { services } from '@/lib/services';
 
 type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return professionals.map(({ slug }) => ({ slug }));
+  return services.map(({ slug }) => ({ slug }));
 }
 
-function getProfessional(slug: string) {
-  return professionals.find((person) => person.slug === slug) ?? notFound();
+function getService(slug: string) {
+  return services.find((service) => service.slug === slug) ?? notFound();
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const person = getProfessional((await params).slug);
-  const { title, description } = profiles[person.slug];
-  return { title, description };
+  const service = getService((await params).slug);
+  return { title: `${service.title} | ${firm.name}`, description: service.introduction };
 }
 
-export default async function LawyerProfile({ params }: Props) {
-  const person = getProfessional((await params).slug);
-  const profile = profiles[person.slug];
-  const portrait = portraits[person.id];
+export default async function ServicePage({ params }: Props) {
+  const service = getService((await params).slug);
 
   return (
     <>
-      <a className="skip-link" href="#perfil">Saltar al perfil</a>
-      <header className="profile-header">
-        <Link href="/" className="brand-lockup">
-          <Image src="/images/pilares-symbol.svg" alt="" width={32} height={32} />
-          {firm.name}
-        </Link>
-        <Link href={`/#${person.id}`}>Volver al equipo</Link>
+      <a className="skip-link" href="#servicio">Saltar al servicio</a>
+      <header className="service-masthead">
+        <div className="brand-lockup"><FirmLogo /></div>
       </header>
-      <main id="perfil">
-        <section className="profile-hero" aria-labelledby="profile-name">
-          <div className="profile-intro">
-            <div>
-              <h1 id="profile-name">{person.name}</h1>
-              <p className="profile-role">{profile.role}</p>
-            </div>
-            <Image className="profile-portrait" src={portrait.src} alt={portrait.alt} sizes="(max-width: 700px) 160px, 280px" placeholder="blur" />
+      <main id="servicio">
+        <div className="profile-hero">
+          <div className="service-intro">
+            <h1>{service.title}</h1>
+            <p>{service.introduction}</p>
           </div>
-        </section>
+        </div>
         <div className="profile-body">
-          <section>
-            <h2>{profile.primary.title}</h2>
-            {profile.primary.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          </section>
-          <section>
-            <h2>Consultas relacionadas</h2>
-            {profile.related.map((service) => (
-              <div className="profile-service" key={service.title}>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-              </div>
-            ))}
-          </section>
-          <section>
-            <h2>Trayectoria profesional</h2>
-            <p>{profile.registration} del Ilustre Colegio de la Abogacía de Alicante (ICALI).</p>
-            <p>{profile.biography}</p>
-          </section>
+          {service.sections.map(([heading, text]) => (
+            <section key={heading}>
+              <h2>{heading}</h2>
+              <p>{text}</p>
+            </section>
+          ))}
         </div>
       </main>
-      <footer className="profile-header">
-        <Link href={`/#${person.id}`}>Volver</Link>
-        <Link href="/aviso-legal">Aviso legal</Link>
-      </footer>
+      <SiteFooter />
+      <Link className="service-back" href="/#especialidades">Volver</Link>
     </>
   );
 }

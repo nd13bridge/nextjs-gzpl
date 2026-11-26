@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import SiteFooter from './components/site-footer';
 import architecture from '@/public/images/architecture.png';
+import { services } from '@/lib/services';
 import { portraits } from '@/lib/portraits';
 import { firm, professionals } from '@/lib/content';
 import AnimatedMatters from './components/animated-matters';
@@ -35,53 +36,37 @@ export default function Home() {
           </div>
         </section>
         <div className="practices">
-          {professionals.map((person) => (
-            <section className="practice" id={person.id} key={person.id} aria-labelledby={`${person.id}-heading`}>
-              <div className="practice-inner">
-                <h2 id={`${person.id}-heading`}>{person.specialty}</h2>
-                <div className="practice-person">
+          <section className="practice" id="equipo" aria-label="Equipo">
+            <div className="practice-overview">
+              {professionals.map((person) => (
+                <article className="team-member" key={person.id}>
                   <div className="practice-portrait-frame">
-                    <Image
-                      className="practice-portrait"
-                      src={portraits[person.id].src}
-                      alt={portraits[person.id].alt}
-                      sizes="(max-width: 700px) 240px, 280px"
-                      placeholder="blur"
-                    />
+                    <Image className="practice-portrait" src={portraits[person.id].src} alt={portraits[person.id].alt}
+                      sizes="(max-width: 700px) 240px, 280px" placeholder="blur" />
                   </div>
-                  <h3>{person.name}</h3>
-                  <Link className="profile-link" href={`/${person.slug}`} aria-label={`Ver perfil de ${person.name}`}>
-                    Ver perfil <span aria-hidden="true">↗</span>
-                  </Link>
-                </div>
-                <div className="practice-content">
-                  <p>{person.description}</p>
-                  <AnimatedMatters matters={person.matters} label={`Asuntos de ${person.specialty.toLowerCase()}`} />
-                </div>
+                  <div>
+                    <h2 className="team-member-name">{person.name}</h2>
+                    <div className="practice-content">
+                      <ul>
+                        {person.facts.map((fact) => <li key={fact}>{fact}</li>)}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="practice" id="especialidades" aria-labelledby="servicios-heading">
+            <div className="practice-overview">
+              <h2 className="practice-title" id="servicios-heading">Especialidades</h2>
+              <div className="practice-content">
+                <AnimatedMatters matters={services.map(({ title, slug }) => ({ title, slug }))} label="Especialidades" />
               </div>
-            </section>
-          ))}
+            </div>
+          </section>
         </div>
       </main>
-      <footer className="site-footer">
-        <div className="footer-identity">
-          <p className="footer-brand brand-lockup">
-            <span className="brand-name" aria-label={`${firm.primaryName} ${firm.secondaryName} Abogados`}>
-              <Image className="brand-symbol" src="/images/pilares-symbol.svg" alt="" width={114} height={114} />
-              <span className="brand-name-primary" aria-hidden="true">{firm.primaryName}</span>
-              <span className="brand-name-secondary" aria-hidden="true">{firm.secondaryName}</span>
-              <span className="brand-descriptor" aria-hidden="true">
-                {'ABOGADOS'.split('').map((letter, index) => <span key={index}>{letter}</span>)}
-              </span>
-            </span>
-          </p>
-        </div>
-        <div className="footer-contact">
-          <a className="footer-link-animated" href={`tel:+34${firm.phone.replaceAll(' ', '')}`}>(+34) {firm.phone}</a>
-          <a className="footer-link-animated" href={`mailto:${firm.email}`}>{firm.email}</a>
-          <Link className="footer-link-animated" href="/aviso-legal">Aviso Legal</Link>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

@@ -7,7 +7,7 @@ import { firm } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: firm.name,
-  description: `${firm.name}. Asesoramiento en derecho inmobiliario y derecho corporativo.`,
+  description: `${firm.name}. Asesoramiento en derecho registral e inmobiliario en Benidorm y la Marina Baixa.`,
   robots: { index: false, follow: false },
 };
 

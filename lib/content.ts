@@ -10,18 +10,21 @@ export const firm = {
   reflection: ['Territorio y patrimonio.', 'Excelencia con nombre propio.'],
 };
 
-// Los asuntos descritos son una propuesta editorial, no casos reales ni credenciales.
 export const professionals = [
   {
-    slug: 'fernando-portillo-laguna',
-    id: 'inmobiliario', name: 'Fernando Portillo Laguna', specialty: 'Inmobiliario',
-    description: 'Asesoramiento en operaciones inmobiliarias y en las relaciones jurídicas vinculadas a la propiedad, la promoción y el arrendamiento.',
-    matters: ['Compraventas y revisión jurídica de activos', 'Promoción y contratación inmobiliaria', 'Arrendamientos y controversias sobre la propiedad'],
+    id: 'fernando',
+    name: 'Fernando Portillo Laguna',
+    facts: [
+      'Colegiado n.º 8044 del Ilustre Colegio de la Abogacía de Alicante.',
+      'Socio director de Antonucci & Portillo Abogados en 2020.',
+    ],
   },
   {
-    slug: 'emma-tania-de-la-gala-gallego',
-    id: 'derecho-corporativo', name: 'Emma Tania de la Gala Gallego', specialty: 'Derecho corporativo',
-    description: 'Asesora a empresas en sus operaciones, desde la revisión de contratos hasta la negociación de acuerdos.',
-    matters: ['Asesoramiento jurídico a empresas', 'Contratación', 'Negociación de acuerdos'],
+    id: 'emma',
+    name: 'Emma Tania de la Gala Gallego',
+    facts: [
+      'Colegiada n.º 8017 del Ilustre Colegio de la Abogacía de Alicante.',
+      'Trayectoria profesional vinculada a Senabre Abogados.',
+    ],
   },
 ] as const;

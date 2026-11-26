@@ -1,9 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useRef, type CSSProperties } from 'react';
 
 type AnimatedMattersProps = {
-  matters: readonly string[];
+  matters: readonly { title: string; slug: string }[];
   label: string;
 };
 
@@ -34,8 +35,13 @@ export default function AnimatedMatters({ matters, label }: AnimatedMattersProps
   return (
     <ul ref={listRef} aria-label={label}>
       {matters.map((matter, index) => (
-        <li key={matter} style={{ '--separator-delay': `${150 + index * 100}ms` } as CSSProperties}>
-          {matter}
+        <li key={matter.slug} style={{ '--separator-delay': `${150 + index * 100}ms` } as CSSProperties}>
+          <Link href={`/${matter.slug}`}>
+            {matter.title}{' '}
+            <svg className="specialty-arrow" aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 13 13 3M4 3h9v9" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+          </Link>
         </li>
       ))}
     </ul>

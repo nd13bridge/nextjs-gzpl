@@ -1,7 +1,7 @@
 import fernandoPortrait from '@/public/images/fernando-portillo-laguna-fondo-blanco.webp';
-import corporatePortrait from '@/public/images/derecho-corporativo.webp';
+import emmaPortrait from '@/public/images/derecho-corporativo.webp';
 
 export const portraits = {
-  inmobiliario: { src: fernandoPortrait, alt: 'Retrato de Fernando Portillo Laguna' },
-  'derecho-corporativo': { src: corporatePortrait, alt: '' },
+  fernando: { src: fernandoPortrait, alt: 'Retrato de Fernando Portillo Laguna' },
+  emma: { src: emmaPortrait, alt: '' },
 };
